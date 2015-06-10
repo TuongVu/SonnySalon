@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/highlightTextView"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:focusable="false" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/nameTextView"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusableInTouchMode="true"
+        android:textColor="@android:color/white" />
+</LinearLayout>

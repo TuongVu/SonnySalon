@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sonny Salon</string>
+
+    <string name="app_fullname">Sonny\'s Nails and Spa</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string-array name="menu_array">
+        <item>Home</item>
+        <item>Services</item>
+        <item>Appointment</item>
+        <item>Gallery</item>
+    </string-array>
+    <string name="hello_world">Hello world!</string>
+</resources>
