@@ -1,17 +1,17 @@
 package com.tvswitch.sonnysalon;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,8 +27,8 @@ import android.widget.TextView;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
-import com.tvswitch.utils.AnimationUtils;
-import com.tvswitch.utils.PrefUtils;
+import com.tvswitch.sonnylibrary.utils.AnimationUtils;
+import com.tvswitch.sonnylibrary.utils.PrefUtils;
 
 public class MainActivity extends AppCompatActivity {
     private ScrollView scrollView;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private int selectedPosition = 0;
 //    private MainMenuAdapter mainMenuAdapter;
     private FragmentManager fragmentManager;
+//    private android.support.v4.app.FragmentManager fragmentManagerV4;
     private PrefUtils prefs;
 
     private FloatingActionButton mFAB;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         AnimationUtils.setupWindowAnimations(getWindow());
         AppStateObjects.setContext(getApplicationContext());
         prefs = new PrefUtils(this);
-        fragmentManager = getFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (toolbar != null){ //check if tool supported on OS version
             setSupportActionBar(toolbar);
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onDrawerClosed(drawerView);
                 if(selectedPosition >= 0) {
                     title.setText(mainMenuData[selectedPosition]);
+                    toggleFAB(true);
                 }
 //                mainMenuAdapter.notifyDataSetChanged();
             }
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onDrawerOpened(drawerView);
                 title.setText(R.string.app_fullname);
 //                mainMenuAdapter.notifyDataSetChanged();
+                toggleFAB(false);
             }
         };
         drawerLayout.setDrawerListener(drawerToggle);
@@ -172,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 ScheduleFragment scheduleFragment = new ScheduleFragment();
                 scheduleFragment.setmFABmenu(mFABMenu);
                 ft.replace(R.id.main_container, scheduleFragment, ScheduleFragment.TAG);
-                mFAB.setVisibility(View.VISIBLE); //turn floating button on
+                toggleFAB(true); //turn floating button on
                 break;
             case 3:
                 ft.replace(R.id.main_container, new GalleryFragment(), GalleryFragment.TAG);
@@ -181,10 +184,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
         prefs.setMainMenuItemSelected(selectedPosition);
         if(selectedPosition != 2){
-            if(mFABMenu.isOpen()){
-                mFABMenu.toggle(true);
-            }
-            mFAB.setVisibility(View.GONE);
+            toggleFAB(false);
         }
         View view = menuContainer.getChildAt(position).findViewById(R.id.highlightTextView);
         view.setBackgroundColor(getResources().getColor(R.color.menuItemSelectedColor));
@@ -195,6 +195,17 @@ public class MainActivity extends AppCompatActivity {
             lastSelectedMenuView.invalidate();
         }
         lastSelectedMenuView = view;
+    }
+
+    private void toggleFAB(boolean on){
+        if(on && selectedPosition == 2){
+            mFAB.setVisibility(View.VISIBLE);
+        }else{
+            if(mFABMenu.isOpen()){
+                mFABMenu.toggle(true);
+            }
+            mFAB.setVisibility(View.GONE);
+        }
     }
 
     /**
@@ -252,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(Gravity.START))
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawers();
         else
             super.onBackPressed();

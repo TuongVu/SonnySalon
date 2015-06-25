@@ -1,4 +1,4 @@
-package com.tvswitch.utils;
+package com.tvswitch.sonnylibrary.utils;
 
 import android.app.Activity;
 import android.app.ActivityOptions;

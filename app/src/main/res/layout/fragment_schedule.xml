@@ -1,13 +1,28 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.tvswitch.sonnysalon.ScheduleFragment">
 
-
-    <ListView
+    <!--
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/schedule_listview"
-        android:layout_gravity="center" />
-</FrameLayout>
+        android:id="@+id/schedule_recyclerview"
+        android:layout_gravity="center"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true"
+        tools:listitem="@layout/main_menu_item"/>
+        -->
+    <com.tvswitch.customviews.SlidingTabLayout
+        android:id="@+id/schedule_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/schedule_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

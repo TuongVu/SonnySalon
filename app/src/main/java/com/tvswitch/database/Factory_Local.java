@@ -4,8 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.tvswitch.sonnylibrary.utils.HashMD5;
 import com.tvswitch.sonnysalon.AppStateObjects;
-import com.tvswitch.utils.HashMD5;
 
 import java.util.HashMap;
 import java.util.UUID;

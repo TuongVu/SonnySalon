@@ -2,7 +2,8 @@ package com.tvswitch.sonnysalon;
 
 import android.content.Context;
 
-import com.tvswitch.utils.User;
+import com.tvswitch.sonnylibrary.utils.User;
+
 
 /**
  * Created by Tuong on 5/28/15.

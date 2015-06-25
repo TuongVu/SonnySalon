@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.tvswitch.database.Factory_Local;
-import com.tvswitch.restapi.UserRequests;
-import com.tvswitch.utils.PrefUtils;
-import com.tvswitch.utils.User;
+import com.tvswitch.sonnylibrary.restapi.UserRequests;
+import com.tvswitch.sonnylibrary.utils.PrefUtils;
+import com.tvswitch.sonnylibrary.utils.User;
 
 
 public class DispatchActivity extends Activity {
@@ -38,14 +38,15 @@ public class DispatchActivity extends Activity {
         final PrefUtils prefs = new PrefUtils(this);
         if(prefs.getUserName() != null && prefs.getPassword() != null){
             new UserRequests(this).fetchUserDataAsyncTask(prefs.getUserName(), prefs.getPassword(), new UserRequests.UserCallBack() {
+
                 @Override
                 public void done(User returnedUser) {
-                    if(returnedUser != null) {
+                    if (returnedUser != null) {
                         prefs.setUserName(returnedUser.loginname);
                         prefs.setPassword(returnedUser.pwdhash);
                         AppStateObjects.setUser(returnedUser);
                         startActivity(new Intent(DispatchActivity.this, MainActivity.class));
-                    }else{
+                    } else {
                         startActivity(new Intent(DispatchActivity.this, LoginActivity.class));
                     }
                     finish();

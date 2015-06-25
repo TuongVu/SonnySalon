@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#2196F3</color>
-    <color name="primaryColorDark">#0D47A1</color>
+    <color name="primaryColor">#ffffce</color>
+    <color name="primaryColorDark">#ffffce86</color>
     <color name="menuItemSelectedColor">#ffffce86</color>
     <color name="mainAppColor">#ff54090d</color>
 </resources>

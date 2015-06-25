@@ -1,7 +1,8 @@
-package com.tvswitch.utils;
+package com.tvswitch.sonnylibrary.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
+
 /**
  * Created by Tuong on 5/28/15.
  */

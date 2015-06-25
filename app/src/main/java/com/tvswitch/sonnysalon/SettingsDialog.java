@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.tvswitch.utils.PrefUtils;
+import com.tvswitch.sonnylibrary.utils.PrefUtils;
 
 import java.util.ArrayList;
 

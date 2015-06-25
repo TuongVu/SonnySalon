@@ -1,10 +1,9 @@
-package com.tvswitch.restapi;
+package com.tvswitch.sonnylibrary.restapi;
 
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-
-import com.tvswitch.utils.User;
+import com.tvswitch.sonnylibrary.utils.User;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -15,12 +15,12 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.tvswitch.restapi.UserRequests;
-import com.tvswitch.utils.AnimationUtils;
-import com.tvswitch.utils.HashMD5;
-import com.tvswitch.utils.PrefUtils;
-import com.tvswitch.utils.UnicodeInputFilter;
-import com.tvswitch.utils.User;
+import com.tvswitch.sonnylibrary.restapi.UserRequests;
+import com.tvswitch.sonnylibrary.utils.AnimationUtils;
+import com.tvswitch.sonnylibrary.utils.HashMD5;
+import com.tvswitch.sonnylibrary.utils.PrefUtils;
+import com.tvswitch.sonnylibrary.utils.UnicodeInputFilter;
+import com.tvswitch.sonnylibrary.utils.User;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class LoginActivity extends Activity implements View.OnClickListener{

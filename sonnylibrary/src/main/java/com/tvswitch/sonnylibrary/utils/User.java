@@ -1,4 +1,4 @@
-package com.tvswitch.utils;
+package com.tvswitch.sonnylibrary.utils;
 
 /**
  * Created by Tuong on 6/4/15.
