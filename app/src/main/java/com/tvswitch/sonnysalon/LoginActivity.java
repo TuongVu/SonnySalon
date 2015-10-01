@@ -15,12 +15,11 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.tvswitch.sonnylibrary.restapi.UserRequests;
-import com.tvswitch.sonnylibrary.utils.AnimationUtils;
-import com.tvswitch.sonnylibrary.utils.HashMD5;
-import com.tvswitch.sonnylibrary.utils.PrefUtils;
-import com.tvswitch.sonnylibrary.utils.UnicodeInputFilter;
-import com.tvswitch.sonnylibrary.utils.User;
+import com.tvswitch.utils.AnimationUtils;
+import com.tvswitch.utils.HashMD5;
+import com.tvswitch.utils.PrefUtils;
+import com.tvswitch.utils.UnicodeInputFilter;
+
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class LoginActivity extends Activity implements View.OnClickListener{
@@ -100,32 +99,32 @@ public class LoginActivity extends Activity implements View.OnClickListener{
 //            Toast.makeText(LoginActivity.this, getString(R.string.invalid_login), Toast.LENGTH_LONG).show();
 //        }
 
-        loginAction(username, HashMD5.md5(password));
+//        loginAction(username, HashMD5.md5(password));
     }
 
-    private void loginAction(String loginName, String pwdHash){
-        new UserRequests(this).fetchUserDataAsyncTask(loginName, pwdHash, new UserRequests.UserCallBack() {
-            @Override
-            public void done(User returnedUser) {
-                if(returnedUser != null){
-                    prefs.setUserName(returnedUser.loginname);
-                    prefs.setPassword(returnedUser.pwdhash);
-                    AppStateObjects.setUser(returnedUser);
-            // Start an intent for the dispatch activity
-                    Intent intent = new Intent(LoginActivity.this, DispatchActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this);
-//            startActivity(intent,AnimationUtils.getWindowsAnimationBundle(LoginActivity.this));
-                    startActivity(intent);
-                    finish();
-                }else{
-                    AppStateObjects.setUser(null);
-                    animateFailedLoginAttempt();
-                    Toast.makeText(LoginActivity.this, getString(R.string.invalid_login), Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
+//    private void loginAction(String loginName, String pwdHash){
+//        new UserRequests(this).fetchUserDataAsyncTask(loginName, pwdHash, new UserRequests.UserCallBack() {
+//            @Override
+//            public void done(User returnedUser) {
+//                if(returnedUser != null){
+//                    prefs.setUserName(returnedUser.loginname);
+//                    prefs.setPassword(returnedUser.pwdhash);
+//                    AppStateObjects.setUser(returnedUser);
+//            // Start an intent for the dispatch activity
+//                    Intent intent = new Intent(LoginActivity.this, DispatchActivity.class);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+////            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this);
+////            startActivity(intent,AnimationUtils.getWindowsAnimationBundle(LoginActivity.this));
+//                    startActivity(intent);
+//                    finish();
+//                }else{
+//                    AppStateObjects.setUser(null);
+//                    animateFailedLoginAttempt();
+//                    Toast.makeText(LoginActivity.this, getString(R.string.invalid_login), Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+//    }
 
     private void animateFailedLoginAttempt(){
         YoYo.with(Techniques.Shake).duration(1000).playOn(usernameEditText);

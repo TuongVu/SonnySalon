@@ -1,11 +1,15 @@
 package com.tvswitch.sonnysalon;
 
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ImageSpan;
@@ -16,8 +20,11 @@ import android.widget.Toast;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.tvswitch.customviews.SlidingTabLayout;
+import com.tvswitch.utils.ScheduleItem;
+import com.tvswitch.utils.ScheduleRecyclerAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -62,7 +69,7 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener{
 //        animator.setAddDuration(1000);
 //        animator.setRemoveDuration(1000);
 //        recyclerView.setItemAnimator(animator);
-
+//
 //        scheduleItemList.add(new ScheduleItem(Color.RED,"Red"));
 //        scheduleItemList.add(new ScheduleItem(Color.YELLOW,"Yellow"));
 //        scheduleItemList.add(new ScheduleItem(Color.GREEN,"Green"));
@@ -81,7 +88,7 @@ public class ScheduleFragment extends Fragment implements View.OnClickListener{
 //        scheduleItemList.add(new ScheduleItem(Color.DKGRAY,"Dark Gray"));
 //        scheduleItemList.add(new ScheduleItem(Color.MAGENTA,"Magenta"));
 //        scheduleItemList.add(new ScheduleItem(Color.LTGRAY,"Light Gray"));
-
+//
 //        ScheduleRecyclerAdapter scheduleRecyclerAdapter = new ScheduleRecyclerAdapter(getActivity(),scheduleItemList);
 //        recyclerView.setAdapter(scheduleRecyclerAdapter);
 

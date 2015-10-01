@@ -2,7 +2,7 @@ package com.tvswitch.sonnysalon;
 
 import android.content.Context;
 
-import com.tvswitch.sonnylibrary.utils.User;
+//import com.tvswitch.sonnylibrary.utils.User;
 
 
 /**
@@ -12,15 +12,15 @@ public class AppStateObjects {
     private static volatile Context context;
     private static String userFullName;
     private static String userUID;
-    private static User user;
+//    private static User user;
+//
+//    public static User getUser() {
+//        return user;
+//    }
 
-    public static User getUser() {
-        return user;
-    }
-
-    public static void setUser(User user) {
-        AppStateObjects.user = user;
-    }
+//    public static void setUser(User user) {
+//        AppStateObjects.user = user;
+//    }
 
     public static Context getContext() {
         return context;

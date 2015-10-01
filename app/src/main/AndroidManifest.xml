@@ -16,19 +16,20 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_sonny_launcher"
         android:label="@string/app_name"
-        android:theme="@style/myAppTheme"
         android:hardwareAccelerated="true"
         android:largeHeap="true">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:theme="@style/myAppTheme"
             android:alwaysRetainTaskState="true"
             android:launchMode="singleTop"
             android:configChanges="orientation|screenSize">
         </activity>
         <activity
             android:name=".DispatchActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/myAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,12 +38,18 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/myAppTheme">
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/myAppTheme">
         </activity>
+        <activity
+            android:name=".TabsHeaderActivity"
+            android:label="@string/app_name"
+            android:theme="@style/MyTheme.Detail" />
     </application>
 
 </manifest>

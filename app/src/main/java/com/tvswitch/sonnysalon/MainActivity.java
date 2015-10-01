@@ -27,8 +27,8 @@ import android.widget.TextView;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
-import com.tvswitch.sonnylibrary.utils.AnimationUtils;
-import com.tvswitch.sonnylibrary.utils.PrefUtils;
+import com.tvswitch.utils.AnimationUtils;
+import com.tvswitch.utils.PrefUtils;
 
 public class MainActivity extends AppCompatActivity {
     private ScrollView scrollView;
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
         }
         TextView usernameTextView = (TextView) findViewById(R.id.userNametextView);
-        usernameTextView.setText(AppStateObjects.getUser().loginname);
+//        usernameTextView.setText(AppStateObjects.getUser().loginname);
         mainMenuData = getResources().getStringArray(R.array.menu_array);
         scrollView = (ScrollView) findViewById(R.id.mainmenuscrollView);
         menuContainer = (LinearLayout)findViewById(R.id.mainmenuscrollcontainer);
@@ -307,10 +307,9 @@ public class MainActivity extends AppCompatActivity {
             settingsDialog.setCancelable(true);
         }
         if( id == R.id.action_logout){
-            prefs.setUserName(null);
-            prefs.setPassword(null);
-            AppStateObjects.setUser(null);
-            Intent intent = new Intent(MainActivity.this, DispatchActivity.class);
+//            prefs.setUserName(null);
+//            prefs.setPassword(null);
+            Intent intent = new Intent(MainActivity.this, TabsHeaderActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();

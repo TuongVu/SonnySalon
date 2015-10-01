@@ -15,12 +15,9 @@ import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.tvswitch.sonnylibrary.restapi.UserRequests;
-import com.tvswitch.sonnylibrary.utils.AnimationUtils;
-import com.tvswitch.sonnylibrary.utils.HashMD5;
-import com.tvswitch.sonnylibrary.utils.PrefUtils;
-import com.tvswitch.sonnylibrary.utils.UnicodeInputFilter;
-import com.tvswitch.sonnylibrary.utils.User;
+import com.tvswitch.utils.AnimationUtils;
+import com.tvswitch.utils.PrefUtils;
+import com.tvswitch.utils.UnicodeInputFilter;
 
 import java.util.UUID;
 
@@ -101,28 +98,28 @@ public class SignUpActivity extends Activity implements View.OnClickListener{
 //            }
 //        }
 
-        User user = new User(firstname,lastname,username, HashMD5.md5(password), UUID.randomUUID().toString());
-        storeOnServer(user);
+//        User user = new User(firstname,lastname,username, HashMD5.md5(password), UUID.randomUUID().toString());
+//        storeOnServer(user);
     }
 
-    private void storeOnServer(User user){
-            new UserRequests(this).storeUserDataInBackground(user, new UserRequests.UserCallBack() {
-                @Override
-                public void done(User returnedUser) {
-                    if(returnedUser != null){
-                        AppStateObjects.setUser(returnedUser);
-                        prefs.setUserName(returnedUser.loginname);
-                        prefs.setPassword(returnedUser.pwdhash);
-                        Intent intent = new Intent(SignUpActivity.this, DispatchActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        ((ResultReceiver)getIntent().getParcelableExtra("finisher")).send(1, new Bundle());
-                        finish();
-                    }else{
-                        YoYo.with(Techniques.Shake).duration(1000).playOn(usernameEditText);
-                        Toast.makeText(SignUpActivity.this, getString(R.string.already_existed), Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
-    }
+//    private void storeOnServer(User user){
+//            new UserRequests(this).storeUserDataInBackground(user, new UserRequests.UserCallBack() {
+//                @Override
+//                public void done(User returnedUser) {
+//                    if(returnedUser != null){
+//                        AppStateObjects.setUser(returnedUser);
+//                        prefs.setUserName(returnedUser.loginname);
+//                        prefs.setPassword(returnedUser.pwdhash);
+//                        Intent intent = new Intent(SignUpActivity.this, DispatchActivity.class);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        startActivity(intent);
+//                        ((ResultReceiver)getIntent().getParcelableExtra("finisher")).send(1, new Bundle());
+//                        finish();
+//                    }else{
+//                        YoYo.with(Techniques.Shake).duration(1000).playOn(usernameEditText);
+//                        Toast.makeText(SignUpActivity.this, getString(R.string.already_existed), Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            });
+//    }
 }
